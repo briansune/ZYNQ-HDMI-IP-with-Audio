@@ -10,6 +10,9 @@ This IP is greated under 2020.2 Vivado.
 
 <img src="https://user-images.githubusercontent.com/29487339/194732643-1b485f9a-31bc-45f9-87b2-4922fde414e5.png" style="height:75%; width:75%" >
 
+<img src="https://user-images.githubusercontent.com/29487339/194767180-f8968455-e57d-46ee-845f-5801ef5934e6.png" style="height:75%; width:75%" >
+
+
 # IP Usage - With Audio 
 
 | Res    | Usage | Total  | %          |
