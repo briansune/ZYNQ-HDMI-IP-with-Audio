@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>briansune</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>hdmi_top</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>clk_pixel</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_pixel</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PIXEL.ASSOCIATED_RESET">sys_nrst</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PIXEL.ASSOCIATED_BUSIF">clk_pixel</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_pixel_x5</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_pixel_x5</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PIXEL_X5.ASSOCIATED_BUSIF">clk_pixel_x5</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>vid_io</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="vid_io_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>VSYNC</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>vsync</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>HSYNC</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hsync</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ACTIVE_VIDEO</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>den</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rgb_in</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>hdmi_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hdmi_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.ASSOCIATED_BUSIF">hdmi_clk</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.HDMI_CLK.FREQ_HZ"/>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>aresetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sys_nrst</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>SystemVerilog</spirit:language>
+        <spirit:modelName>hdmi_top</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>32d71c8c</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>SystemVerilog</spirit:language>
+        <spirit:modelName>hdmi_top</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>32d71c8c</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>1deaa66d</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_utilityxitfiles</spirit:name>
+        <spirit:displayName>Utility XIT/TTCL</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xit.util</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_utilityxitfiles_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>34244f65</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk_pixel</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clk_pixel_x5</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sys_nrst</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hsync</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>vsync</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>den</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rgb_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">23</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>audio_l</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>audio_r</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_d0</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_d1</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_d2</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_cec</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_hdp</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_scl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_sda</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>no_codec</spirit:name>
+        <spirit:displayName>No Codec</spirit:displayName>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.no_codec">false</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>audio_clock_regeneration_packet.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>audio_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>audio_sample_packet.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>auxiliary_video_information_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdmi.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>packet_assembler.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>packet_picker.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>serializer.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>source_product_description_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>tmds_channel.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdmi_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_516d152c</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>audio_clock_regeneration_packet.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>audio_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>audio_sample_packet.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>auxiliary_video_information_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdmi.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>packet_assembler.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>packet_picker.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>serializer.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>source_product_description_info_frame.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>tmds_channel.sv</spirit:name>
+        <spirit:fileType>systemVerilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>hdmi_top.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/hdmi_top_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_1deaa66d</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_utilityxitfiles_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/LOGO.PNG</spirit:name>
+        <spirit:userFileType>image</spirit:userFileType>
+        <spirit:userFileType>LOGO</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>hdmi_top_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">hdmi_top_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>no_codec</spirit:name>
+      <spirit:displayName>No Audio Codec</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.no_codec">false</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qvirtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">kintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qkintex7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">akintex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">aartix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qartix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">qzynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">azynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">spartan7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">aspartan7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>hdmi_top_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:vendorDisplayName>briansune</xilinx:vendorDisplayName>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-01-00T00:00:00Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70af754d_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@241bd9a0_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f3f32c6_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3151f4c2_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2310e473_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61bee575_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@522bfc0c_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c0d89ec_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48088cf6_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6818218_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b899948_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@344da9fb_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10423a30_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e26d333_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b0a9650_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7641c35e_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b77c5f8_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59a4ba6f_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b3f7be8_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b0a2a9a_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e461a84_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23b0b860_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46cc4275_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64c21dd3_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11f66a7_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a69d5dc_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f0701a6_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65e366cf_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b0266d3_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@262b444d_ARCHIVE_LOCATION">c:/users/briansunez/desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6328417e_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a8239c_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17ce6457_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12bb6601_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@313f2473_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5cad6d72_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e977040_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dac55c4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6dc940cb_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54d1afb5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ae8c940_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75ea70ea_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45c43b54_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33b08ae5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49635127_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@45e3112_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17bd6bd3_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67ac9e21_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2caba257_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d8c773_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2dd3d288_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53f31e30_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47bee4f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3102ae64_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f73ea07_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e7ef210_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@179631fa_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@44d1de42_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@66014f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@607ef1b4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d9311be_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1869497f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f546256_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@619f95dc_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5688b9e7_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dd09165_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@160186b8_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61224568_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2feb365c_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5939bb0a_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@248216f4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31906ed1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17d2e2b9_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ae60370_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18f0f242_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72b74ce1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c7d5eb3_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@66a31618_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3654c1a4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54335bf3_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6879d3e5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ac9fe93_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29036340_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d9a5028_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6412b2b5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9118c64_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24053fa0_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@159de185_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68b418f5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d2bd481_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@69d2f2a6_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11fac4a4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7349c04d_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@578db56_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@dcc4dd6_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c4efaf5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14d0db06_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7558a260_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@350ff7d7_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@24d33a20_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4885047f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@380e6d73_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e268c8b_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@316d8f7b_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b29f33b_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e2d8fde_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34e35f15_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ce41f30_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@464babf5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a2c9fe0_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fe58fb1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31adf310_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29acebbf_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cce736f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2587d5cb_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3905e26f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e2d87d5_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3893e4e1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2655d40f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@519de4e_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bfca0a1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@331c9fa9_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@10a7245e_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e33fb90_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e07cd12_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@616aecdb_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12393685_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b7f96b3_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ed6202c_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@547fbe50_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@82135a3_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63dbfddb_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@23a5e666_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a35c5e1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b6a88c8_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54034853_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4bc3be01_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30fcb694_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dd1a1ae_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bc39129_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14a62c0f_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1ffa228b_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2dfec025_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34384999_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47842188_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a112747_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c5ed2f9_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f340cbf_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@eb23d61_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@224f7b41_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d6fc298_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@240fd77a_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cfe9441_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2438ba98_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@682b0fcb_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76a56934_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5b428b1_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@681ba9b4_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7760423c_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@226a1897_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b60ea77_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e0b091_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@260bb57a_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@481e7c7_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@25a91dc0_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49752118_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2806d4fd_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59ec01aa_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5791ae4e_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@329c22_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@489c9345_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5583227c_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29eef360_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@747a4893_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@347b4211_ARCHIVE_LOCATION">c:/Users/briansuneZ/Desktop/hdm_ip/hdmi_ip.srcs</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="772100f2"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="cab1dead"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="24d5632f"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="53fd0c55"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="b4a15f83"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
